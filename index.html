@@ -32,6 +32,9 @@ h1,h2,h3{font-family:"BC",sans-serif;font-weight:800;text-transform:uppercase;li
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:0;border:0;cursor:pointer;font-family:"BW";font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding:19px 30px;background:var(--laranja);color:#fff;transition:background .25s,color .25s;white-space:nowrap}
 .btn:hover{background:var(--brasa)}
 .btn svg{width:20px;height:20px;flex:none}
+.btn.lin{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85)}
+.btn.lin:hover{background:#fff;color:var(--tinta)}
+.hero .bts{display:flex;gap:12px;flex-wrap:wrap}
 .split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.04em}
 .split .w>span{display:inline-block;transform-origin:0 100%}
 .tit{text-align:center;max-width:860px;margin:0 auto}
@@ -60,8 +63,8 @@ h1,h2,h3{font-family:"BC",sans-serif;font-weight:800;text-transform:uppercase;li
 .hero h1{font-size:clamp(60px,8.6vw,150px);max-width:9.5ch;text-shadow:0 4px 40px rgba(10,12,16,.35)}
 .hero h1 em{font-style:normal;color:var(--laranja)}
 .bora{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:clamp(17px,1.4vw,20px);font-weight:500;white-space:nowrap}
-.bora .slot{position:relative;display:inline-block;height:1.7em;overflow:hidden;min-width:8.5em}
-.bora .slot b{position:absolute;left:0;top:0;white-space:nowrap;background:#fff;color:var(--tinta);padding:0 10px;line-height:1.7em;font-weight:700}
+.bora .slot{position:relative;display:inline-block;height:1.7em;overflow:hidden;min-width:6.5em}
+.bora .slot b{position:absolute;left:0;top:0;white-space:nowrap;color:#fff;line-height:1.7em;font-weight:700}
 .hero .lado{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding-bottom:12px}
 .g5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500}
 .g5 svg{width:24px;height:24px;background:#fff;padding:3px}
@@ -114,8 +117,13 @@ h1,h2,h3{font-family:"BC",sans-serif;font-weight:800;text-transform:uppercase;li
 .todos-h h3{font-size:clamp(40px,4vw,64px);color:var(--noite);margin-top:12px}
 .todos-h h3 em{font-style:normal;color:var(--azul)}
 .todos-h p{color:var(--muted);max-width:40ch}
-.pgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.2vw,18px);margin-top:clamp(36px,4vw,56px)}
-.pcard{position:relative;aspect-ratio:4/5.2;overflow:hidden;background:var(--noite);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 16px;cursor:pointer}
+.pgrid,.rgrid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(clamp(170px,15vw,240px),auto);grid-auto-flow:dense;gap:clamp(10px,1.2vw,18px);margin-top:clamp(36px,4vw,56px)}
+.pgrid .g,.rgrid .g{grid-column:span 2;grid-row:span 2}
+.pgrid .t,.rgrid .t{grid-row:span 2}
+.pgrid .w,.rgrid .w{grid-column:span 2}
+.rgrid .f{grid-column:1/-1}
+.g b{font-size:clamp(40px,3.8vw,64px)!important}
+.pcard{position:relative;overflow:hidden;background:var(--noite);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 16px;cursor:pointer}
 .pcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,16,.9) 0%,rgba(10,12,16,.45) 40%,rgba(10,12,16,0) 70%)}
 .pcard>span{position:relative;z-index:2;display:block}
@@ -161,15 +169,16 @@ h1,h2,h3{font-family:"BC",sans-serif;font-weight:800;text-transform:uppercase;li
 
 /* RESORTS */
 .rst{position:relative;background:#fff;padding:0 0 clamp(110px,11vw,170px)}
-.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px);max-width:1240px;margin:clamp(50px,5vw,80px) auto 0}
-.rcard{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--noite);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 20px;cursor:pointer}
+.rgrid{margin-top:clamp(50px,5vw,80px)}
+.rcard{position:relative;overflow:hidden;background:var(--noite);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 20px;cursor:pointer}
 .rcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .rcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,16,.92) 0%,rgba(10,12,16,.5) 40%,rgba(10,12,16,0) 72%)}
 .rcard>span{position:relative;z-index:2;display:block}
 .rcard small{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#ffc477}
 .rcard b{display:block;font-family:"BC";font-weight:800;text-transform:uppercase;font-size:clamp(28px,2.4vw,36px);line-height:.95;margin-top:6px}
 .rcard em{display:inline-block;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:14px;padding-bottom:3px;border-bottom:1.5px solid var(--laranja)}
-.rcard.cta{background:var(--laranja);justify-content:center}
+.rcard.cta{background:var(--laranja);justify-content:center;padding:28px clamp(22px,4vw,56px)}
+.rcard.cta b{font-size:clamp(32px,3vw,46px)}
 .rcard.cta::after{display:none}
 .rcard.cta p{position:relative;z-index:2;font-size:16px;line-height:1.5;opacity:.92;margin-top:12px}
 
@@ -270,6 +279,8 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
   .hero .bg{object-position:55% 50%}
   .hero h1{font-size:clamp(46px,12.6vw,66px);max-width:none}
   .hero .lado{align-items:center;padding:0}
+  .hero .bts{flex-direction:column;align-items:stretch;width:100%;max-width:340px;gap:10px}
+  .hero .bts .btn{padding:16px 18px}
   .bora{justify-content:center;margin-top:16px}
   .tit h2{font-size:clamp(44px,11.5vw,64px)}
   .quem{padding:90px 0}
@@ -291,10 +302,10 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
   .camada p{font-size:16.5px}
   .todos{padding:70px 0 90px}
   .todos-h{flex-direction:column;align-items:center;text-align:center;gap:10px}
-  .pgrid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .pgrid,.rgrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(170px,auto);gap:10px}
   .pcard{padding:14px 12px}
   .pcard b{font-size:24px}
-  .pcard.cta{grid-column:1/-1;aspect-ratio:auto;padding:26px 20px}
+  .g b{font-size:40px!important}
   .dia{border-radius:28px 28px 0 0;margin-top:-28px;padding:90px 0}
   .linha .eixo{left:16px}
   .passo{grid-template-columns:1fr;gap:20px;padding-left:44px}
@@ -308,12 +319,10 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
   .faixa .mk{max-width:100%}
   .faixa .ir{left:22px;right:auto}
   .rst{padding-bottom:90px}
-  .rgrid{grid-template-columns:repeat(2,1fr);gap:10px}
   .rcard{padding:16px 14px}
   .rcard b{font-size:24px}
   .rcard small{font-size:10.5px;letter-spacing:.12em}
-  .rcard:first-child{grid-column:1/-1;aspect-ratio:16/11}
-  .rcard.cta{grid-column:1/-1;aspect-ratio:auto;padding:28px 22px}
+  .rcard.cta{padding:24px 20px}
   .res{padding:0 0 70px;background:#fff;color:var(--tinta)}
   .res-t .k{color:var(--brasa)}
   .res-t>p{color:var(--muted)}
@@ -335,7 +344,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
   footer>*{min-width:0;max-width:100%}
   footer .base{flex-direction:column;align-items:center;gap:6px;text-align:center}
 }
-@media(min-width:901px) and (max-width:1150px){.mural{columns:2}.rgrid{grid-template-columns:repeat(3,1fr)}.pgrid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:901px) and (max-width:1150px){.mural{columns:2}}
 </style>
 </head>
 <body>
@@ -347,7 +356,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
 <header id="nav">
   <div class="wrap">
     <a class="lg" href="#topo" aria-label="Neto Passeios Alagoas"><img src="logo.png" alt="Neto Passeios Alagoas"></a>
-    <nav><a href="#quem">Quem é o Neto</a><a href="#roteiros">Passeios</a><a href="#resorts">Transfer</a><a href="#avaliacoes">Avaliações</a></nav>
+    <nav><a href="#quem">Quem é o Neto</a><a href="#servicos">Transfer</a><a href="#roteiros">Passeios</a><a href="#avaliacoes">Avaliações</a></nav>
     <a class="btn" href="#reservar">Montar roteiro</a>
   </div>
 </header>
@@ -360,7 +369,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
     <div class="esq"><h1 class="split" id="heroTit">Alagoas do seu jeito, com <em>quem conhece.</em></h1>
     <div class="bora h-fade">Bora pro <span class="slot" id="slot"><b>Gunga</b><b>Francês</b><b>Milagres</b><b>Maragogi</b><b>Crôa</b><b>Cânions</b><b>Gunga</b></span></div></div>
     <div class="lado">
-      <a class="btn h-fade" href="#reservar">Montar meu roteiro</a>
+      <div class="bts h-fade"><a class="btn" href="#reservar">Montar meu roteiro</a><a class="btn lin" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel">Transfer aeroporto ⇄ hotel</a></div>
       <div class="g5 h-fade"><svg><use href="#g"/></svg><b>5,0</b><span class="est brilho"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><span>201 avaliações</span></div>
     </div>
   </div>
@@ -377,13 +386,23 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
     <div>
       <span class="k rv">Quem te leva</span>
       <h2 class="split">Prazer, eu sou o <em>Neto.</em></h2>
-      <p class="rv">Sou guia de turismo em Maceió e levo você pra conhecer Alagoas de carro privativo, no ritmo do seu grupo, contando a história de cada lugar pelo caminho.</p>
+      <p class="rv">Sou guia de turismo em Maceió. Busco você no aeroporto e levo pro hotel, e levo pra conhecer Alagoas de carro privativo, no ritmo do seu grupo, contando a história de cada lugar pelo caminho.</p>
       <p class="rv">Família com criança, casal, amigos ou grupo da melhor idade. Eu cuido do horário certo da maré e indico o restaurante que só quem é daqui conhece.</p>
       <div class="nums rv">
         <div class="num"><div class="ic"><svg><use href="#g"/></svg></div><b>201</b><span>avaliações no Google</span></div>
         <div class="num gg"><div class="ic"><span class="est brilho"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span></div><b>5,0</b><span>de nota, todas 5 estrelas</span></div>
         <div class="num wa"><div class="ic"><svg><use href="#wa"/></svg></div><b>24h</b><span>de atendimento no WhatsApp</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="pas" id="servicos">
+  <div class="wrap">
+    <div class="tit"><span class="k rv">Serviços</span><h2 class="split">Do que você <em>precisa?</em></h2></div>
+    <div class="faixas">
+            <a class="faixa rv" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel"><img src="transfer-van.jpg" alt="Carro com carretinha e malas no aeroporto" style="object-position:50% 70%"><span class="mk"><small>Só transfer, sem passeio</small><b>Do aeroporto pro hotel e do hotel pro aeroporto</b><em>O Neto te espera no desembarque e leva na volta. Carro privativo, com carretinha pras malas.</em></span><span class="ir">Quero o transfer →</span></a>
+      <a class="faixa rv" href="#reservar" data-pre="Roteiro com vários passeios"><img src="buggy-dunas.jpg" alt="Buggys nas dunas de frente pro mar" style="object-position:50% 55%"><span class="mk"><small>Passeios privativos</small><b>Conheça Alagoas no seu ritmo</b><em>Maragogi, Milagres, Gunga e mais, só com o seu grupo e o Neto.</em></span><span class="ir">Quero um passeio →</span></a>
     </div>
   </div>
 </section>
@@ -411,16 +430,6 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
   </div>
 </section>
 
-<section class="pas" id="servicos">
-  <div class="wrap">
-    <div class="tit"><span class="k rv">Serviços</span><h2 class="split">Do que você <em>precisa?</em></h2></div>
-    <div class="faixas">
-      <a class="faixa rv" href="#reservar" data-pre="Roteiro com vários passeios"><img src="buggy-dunas.jpg" alt="Buggys nas dunas de frente pro mar" style="object-position:50% 55%"><span class="mk"><small>Passeios privativos</small><b>Conheça Alagoas no seu ritmo</b><em>Maragogi, Milagres, Gunga e mais, só com o seu grupo e o Neto.</em></span><span class="ir">Quero um passeio →</span></a>
-      <a class="faixa rv" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel"><img src="transfer-van.jpg" alt="Carro com carretinha e malas no aeroporto" style="object-position:50% 70%"><span class="mk"><small>Transfer do aeroporto</small><b>Do desembarque direto pro hotel</b><em>Carro privativo, com carretinha pras malas quando o grupo precisa.</em></span><span class="ir">Quero o transfer →</span></a>
-    </div>
-  </div>
-</section>
-
 <section class="rst" id="resorts">
   <div class="wrap">
     <div class="tit"><span class="k rv">Transfer</span><h2 class="split">Os resorts que o Neto <em>atende</em></h2><p class="rv">Do aeroporto Zumbi dos Palmares direto pra recepção do seu resort, no carro só do seu grupo.</p></div>
@@ -436,13 +445,13 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
     <h2 class="split">Monte seu roteiro</h2>
     <p class="rv">Conta pra onde quer ir, quando chega e quantas pessoas vão. O Neto responde com o roteiro e o valor certinho pro seu grupo.</p>
     <form class="orc rv" id="orc" novalidate>
-      <label class="full">Pra onde você quer ir?<select name="dest"><option value="" disabled selected>Escolha o passeio</option></select><span class="err"></span></label>
+      <label class="full">Pra onde você quer ir?<select name="dest"><option value="" disabled selected>Escolha uma opção</option><option value="Transfer aeroporto ⇄ hotel">Transfer aeroporto ⇄ hotel (ida e volta)</option></select><span class="err"></span></label>
       <label class="full" id="orcOutro" hidden>Qual lugar?<input name="outro" type="text" maxlength="60" placeholder="Ex.: Japaratinga"><span class="err"></span></label>
       <div class="campo"><span class="lbl">Chegada em Alagoas</span><button type="button" class="dt vazio" data-k="ida">Escolher data</button><span class="err"></span></div>
       <div class="campo"><span class="lbl">Volta pra casa</span><button type="button" class="dt vazio" data-k="volta">Escolher data</button><em class="dica">Opcional, deixe em branco se não sabe</em><span class="err"></span></div>
       <label>Quantas pessoas?<select name="pes"><option value="" disabled selected>Escolha</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>Mais de 12</option></select><span class="err"></span></label>
       <label>Quem vai no grupo?<select name="grupo"><option value="">Opcional</option><option>Casal</option><option>Família com crianças</option><option>Grupo da melhor idade</option><option>Amigos</option><option>Viajo sozinho(a)</option></select></label>
-      <label class="full">Hotel ou pousada<input name="hotel" type="text" maxlength="80" placeholder="Ex.: Pousada na Pajuçara"><em class="dica">Opcional, onde você vai se hospedar</em></label>
+      <label class="full">Nome do hotel ou pousada<input name="hotel" type="text" maxlength="80" placeholder="Ex.: Pousada na Pajuçara"><em class="dica">Opcional, onde você vai se hospedar</em></label>
       <button class="btn full" type="submit"><svg><use href="#wa"/></svg>Pedir orçamento no WhatsApp</button>
       <small class="full">A mensagem já chega pronta no WhatsApp do Neto.</small>
     </form>
@@ -522,19 +531,22 @@ const RESORTS=[
   ['rs-salmaceio.jpg','Ipioca · Maceió','Salinas Maceió'],
   ['rs-ipioca.jpg','Ipioca · Maceió','Ipioca Beach Resort']
 ];
-const OUTROS=['Transfer aeroporto ⇄ hotel','Roteiro com vários passeios','Outro lugar'];
+const OUTROS=['Roteiro com vários passeios','Outro lugar'];
 const orc=document.getElementById('orc'),palco=document.getElementById('palco'),pgrid=document.getElementById('pgrid'),rgrid=document.getElementById('rgrid');
 const DESTAQUES=['Maragogi','São Miguel dos Milagres','Ilha da Crôa','Foz do São Francisco'];
 const DQ=ROTEIROS.filter(r=>DESTAQUES.includes(r.id));
 DQ.forEach((r,i)=>palco.insertAdjacentHTML('beforeend',`<div class="camada"><picture><source media="(max-width:900px)" srcset="${r.m}"><img src="${r.d}" alt="${r.t}"${r.mp?` style="--mp:${r.mp}"`:''}></picture><div class="wrap"><div class="nome"><span class="n">${String(i+1).padStart(2,'0')} / ${String(DQ.length).padStart(2,'0')}</span><small>${r.reg}</small><h3>${r.t}</h3></div><div class="lado"><p>${r.tx}</p><a class="btn" href="#reservar" data-pre="${r.id}">Quero esse</a></div></div><div class="esc"></div></div>`));
-ROTEIROS.forEach(r=>{
-  pgrid.insertAdjacentHTML('beforeend',`<a class="pcard rv" href="#reservar" data-pre="${r.id}"><img src="${r.m}" alt="${r.t}" loading="lazy" style="object-position:${r.mp||'50% 50%'}"><span><small>${r.reg}</small><b>${r.t}</b><em>Quero esse →</em></span></a>`);
+const TAM=['g','t','','','','','w','t','g'];
+ROTEIROS.forEach((r,i)=>{
+  const tm=TAM[i]||'',deitada=tm==='g'||tm==='w';
+  pgrid.insertAdjacentHTML('beforeend',`<a class="pcard rv ${tm}" href="#reservar" data-pre="${r.id}"><img src="${deitada?r.d:r.m}" alt="${r.t}" loading="lazy" style="object-position:${deitada?'50% 50%':(r.mp||'50% 50%')}"><span><small>${r.reg}</small><b>${r.t}</b><em>Quero esse →</em></span></a>`);
   orc.dest.insertAdjacentHTML('beforeend',`<option value="${r.id}">${r.t}</option>`);
 });
-pgrid.insertAdjacentHTML('beforeend',`<a class="pcard cta rv" href="#reservar" data-pre="Roteiro com vários passeios"><span><small>Vários dias em Alagoas?</small><b>Monte um roteiro com vários passeios</b></span><p>O Neto organiza a ordem certa pra aproveitar a maré e não perder tempo na estrada.</p><span><em>Montar meu roteiro →</em></span></a>`);
+pgrid.insertAdjacentHTML('beforeend',`<a class="pcard cta rv t" href="#reservar" data-pre="Roteiro com vários passeios"><span><small>Vários dias em Alagoas?</small><b>Monte um roteiro com vários passeios</b></span><p>O Neto organiza a ordem certa pra aproveitar a maré e não perder tempo na estrada.</p><span><em>Montar meu roteiro →</em></span></a>`);
 OUTROS.forEach(o=>orc.dest.insertAdjacentHTML('beforeend',`<option>${o}</option>`));
-RESORTS.forEach(([img,loc,n])=>rgrid.insertAdjacentHTML('beforeend',`<a class="rcard rv" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel" data-hotel="${n}"><img src="${img}" alt="${n}" loading="lazy"><span><small>${loc}</small><b>${n}</b><em>Cotar transfer →</em></span></a>`));
-rgrid.insertAdjacentHTML('beforeend',`<a class="rcard cta rv" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel"><span><small style="color:#fff">Outro hotel?</small><b>Seu hotel não tá na lista?</b></span><p>O Neto leva pra qualquer hotel ou pousada de Alagoas.</p><span><em>Cotar meu transfer →</em></span></a>`);
+const TR=['g','t','','','','w',''];
+RESORTS.forEach(([img,loc,n],i)=>rgrid.insertAdjacentHTML('beforeend',`<a class="rcard rv ${TR[i]||''}" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel" data-hotel="${n}"><img src="${img}" alt="${n}" loading="lazy"><span><small>${loc}</small><b>${n}</b><em>Cotar transfer →</em></span></a>`));
+rgrid.insertAdjacentHTML('beforeend',`<a class="rcard cta rv f" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel"><span><small style="color:#fff">Outro hotel?</small><b>Seu hotel não tá na lista?</b></span><p>O Neto leva pra qualquer hotel ou pousada de Alagoas.</p><span><em>Cotar meu transfer →</em></span></a>`);
 
 /* formulário com calendário (mesmo modelo do site do Agnaldo) */
 (function(){
@@ -592,7 +604,7 @@ if(!f.pes.value)falha(f.pes,'Escolha quantas pessoas');
 if(primeiro){campo(primeiro).scrollIntoView({behavior:'smooth',block:'center'});return}
 var vt=st.volta?'\nVolta: '+br(st.volta)+' ('+SEM[st.volta.getDay()]+')\nTotal: '+(Math.round((st.volta-st.ida)/864e5)+1)+(mesmo(st.volta,st.ida)?' dia':' dias em Alagoas'):'',
 hotel=f.hotel.value.trim(),grupo=f.grupo.value,
-m='Olá, Neto! Vim pelo site e quero montar meu roteiro.\n\nPasseio: '+(dest==='Outro lugar'?outro:dest)+'\nChegada: '+br(st.ida)+' ('+SEM[st.ida.getDay()]+')'+vt+'\nPessoas: '+f.pes.value+(grupo?'\nGrupo: '+grupo:'')+(hotel?'\nHospedagem: '+hotel:''),
+m='Olá, Neto! Vim pelo site e quero um orçamento.\n\nQuero: '+(dest==='Outro lugar'?outro:dest)+'\nChegada: '+br(st.ida)+' ('+SEM[st.ida.getDay()]+')'+vt+'\nPessoas: '+f.pes.value+(grupo?'\nGrupo: '+grupo:'')+(hotel?'\nHospedagem: '+hotel:''),
 url='https://wa.me/'+WA+'?text='+encodeURIComponent(m),w=window.open(url,'_blank');
 if(!w)location.href=url});
 pinta()})();

@@ -7,9 +7,18 @@
 <meta name="description" content="Passeios privativos, transfer do aeroporto pro hotel e roteiros personalizados em Maceió e em toda Alagoas, com o guia Neto. Nota 5,0 no Google.">
 <meta property="og:title" content="Neto Passeios Alagoas">
 <meta property="og:description" content="Alagoas do seu jeito, com quem conhece cada canto. Passeios, transfer e roteiros personalizados.">
-<meta property="og:image" content="https://neto-passeios-alagoas.vercel.app/capa.jpg">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://neto-passeios-alagoas.vercel.app/">
+<meta property="og:site_name" content="Neto Passeios Alagoas">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://neto-passeios-alagoas.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Neto Passeios Alagoas: Alagoas do seu jeito, com quem conhece">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://neto-passeios-alagoas.vercel.app/og.jpg">
 <link rel="icon" href="logo.png">
+<link rel="preload" href="capa.jpg" as="image" media="(min-width:0px)">
 <link rel="preload" href="barlowc-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="barlow-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -75,7 +84,7 @@ h1,h2,h3{font-family:"BC",sans-serif;font-weight:800;text-transform:uppercase;li
 .est i{font-style:normal;display:inline-block;text-shadow:0 0 0 rgba(255,194,26,0)}
 
 /* NETO */
-.quem{position:relative;z-index:5;background:var(--papel);padding:clamp(110px,12vw,180px) 0}
+.quem{position:relative;z-index:5;will-change:clip-path;background:var(--papel);padding:clamp(110px,12vw,180px) 0}
 .quem .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,100px);align-items:center}
 .sol{position:relative;aspect-ratio:1/1.1;max-width:540px;width:100%;justify-self:center}
 .sol .disco{position:absolute;left:-4%;top:8%;width:82%;aspect-ratio:1;border-radius:50%;background:var(--laranja)}
@@ -101,7 +110,7 @@ h1,h2,h3{font-family:"BC",sans-serif;font-weight:800;text-transform:uppercase;li
 .dest{position:relative;z-index:6;background:#fff}
 .dest-t{padding:clamp(110px,11vw,170px) 0 clamp(56px,6vw,90px)}
 .palco{position:relative;height:100vh;height:100svh;min-height:540px;overflow:hidden;background:var(--noite);color:#fff}
-.camada{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.camada{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end;will-change:clip-path}
 .camada picture,.camada img{position:absolute;inset:0;width:100%;height:100%}
 .camada img{object-fit:cover}
 .camada::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,16,.72) 0%,rgba(10,12,16,.2) 45%,rgba(10,12,16,0) 100%)}
@@ -355,7 +364,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
 
 <header id="nav">
   <div class="wrap">
-    <a class="lg" href="#topo" aria-label="Neto Passeios Alagoas"><img src="logo.png" alt="Neto Passeios Alagoas"></a>
+    <a class="lg" href="#topo" aria-label="Neto Passeios Alagoas"><img loading="lazy" decoding="async" src="logo.png" alt="Neto Passeios Alagoas"></a>
     <nav><a href="#quem">Quem é o Neto</a><a href="#servicos">Transfer</a><a href="#roteiros">Passeios</a><a href="#avaliacoes">Avaliações</a></nav>
     <a class="btn" href="#reservar">Montar roteiro</a>
   </div>
@@ -363,7 +372,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
 
 <section class="hero" id="topo">
   <picture>
-    <img class="bg" id="heroImg" src="capa.jpg" alt="Jangada no mar azul de Alagoas vista de cima">
+    <img decoding="async" class="bg" id="heroImg" fetchpriority="high" src="capa.jpg" alt="Jangada no mar azul de Alagoas vista de cima">
   </picture>
   <div class="wrap">
     <div class="esq"><h1 class="split" id="heroTit">Alagoas do seu jeito, com <em>quem conhece.</em></h1>
@@ -380,7 +389,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
   <div class="wrap">
     <div class="sol">
       <div class="disco" id="disco"></div>
-      <div class="foto"><img src="neto-frances.jpg" alt="O guia Neto com clientes no letreiro da Praia do Francês"></div>
+      <div class="foto"><img loading="lazy" decoding="async" src="neto-frances.jpg" alt="O guia Neto com clientes no letreiro da Praia do Francês"></div>
       <div class="tag">Praia do Francês<small>Neto com clientes</small></div>
     </div>
     <div>
@@ -401,8 +410,8 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
   <div class="wrap">
     <div class="tit"><span class="k rv">Serviços</span><h2 class="split">Do que você <em>precisa?</em></h2></div>
     <div class="faixas">
-            <a class="faixa rv" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel"><img src="transfer-van.jpg" alt="Carro com carretinha e malas no aeroporto" style="object-position:50% 70%"><span class="mk"><small>Só transfer, sem passeio</small><b>Do aeroporto pro hotel e do hotel pro aeroporto</b><em>O Neto te espera no desembarque e leva na volta. Carro privativo, com carretinha pras malas.</em></span><span class="ir">Quero o transfer →</span></a>
-      <a class="faixa rv" href="#reservar" data-pre="Roteiro com vários passeios"><img src="buggy-dunas.jpg" alt="Buggys nas dunas de frente pro mar" style="object-position:50% 55%"><span class="mk"><small>Passeios privativos</small><b>Conheça Alagoas no seu ritmo</b><em>Maragogi, Milagres, Gunga e mais, só com o seu grupo e o Neto.</em></span><span class="ir">Quero um passeio →</span></a>
+            <a class="faixa rv" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel"><img loading="lazy" decoding="async" src="transfer-van.jpg" alt="Carro com carretinha e malas no aeroporto" style="object-position:50% 70%"><span class="mk"><small>Só transfer, sem passeio</small><b>Do aeroporto pro hotel e do hotel pro aeroporto</b><em>O Neto te espera no desembarque e leva na volta. Carro privativo, com carretinha pras malas.</em></span><span class="ir">Quero o transfer →</span></a>
+      <a class="faixa rv" href="#reservar" data-pre="Roteiro com vários passeios"><img loading="lazy" decoding="async" src="buggy-dunas.jpg" alt="Buggys nas dunas de frente pro mar" style="object-position:50% 55%"><span class="mk"><small>Passeios privativos</small><b>Conheça Alagoas no seu ritmo</b><em>Maragogi, Milagres, Gunga e mais, só com o seu grupo e o Neto.</em></span><span class="ir">Quero um passeio →</span></a>
     </div>
   </div>
 </section>
@@ -421,11 +430,11 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
     <div class="tit"><span class="k rv">Como funciona</span><h2 class="split">Um dia de passeio com o <em>Neto</em></h2><p class="rv">Sem van lotada e sem correria pra cumprir horário de grupo. O dia é de vocês.</p></div>
     <div class="linha">
       <div class="eixo"><i id="eixo"></i></div>
-      <div class="passo"><span class="ponto"></span><div class="img"><img src="estrada.jpg" alt="Estrada entre coqueiros no litoral de Alagoas"></div><div class="tx"><b>01</b><h3>Ele busca vocês no hotel</h3><p>Carro privativo, ar gelado e espaço pras malas. Só o seu grupo e o Neto.</p></div></div>
-      <div class="passo"><span class="ponto"></span><div class="img"><img src="gunga-mirante.jpg" alt="Mirante sobre o coqueiral e o mar no Gunga" style="object-position:50% 70%"></div><div class="tx"><b>02</b><h3>Pelo caminho, as histórias</h3><p>Cada cidade, cada mirante e cada curiosidade explicada por quem é daqui.</p></div></div>
-      <div class="passo"><span class="ponto"></span><div class="img"><img src="clientes-balanco.jpg" alt="Clientes do Neto nos balanços de frente pro mar" style="object-position:50% 45%"></div><div class="tx"><b>03</b><h3>Fotos lindas de todo mundo</h3><p>Ele conhece os melhores ângulos e faz questão de que ninguém fique de fora da foto.</p></div></div>
-      <div class="passo"><span class="ponto"></span><div class="img"><img src="beach-club.jpg" alt="Mesas pé na areia num restaurante de praia"></div><div class="tx"><b>04</b><h3>Almoço com indicação de local</h3><p>Do beach club pé na areia ao restaurante caseiro que turista nenhum encontra sozinho.</p></div></div>
-      <div class="passo"><span class="ponto"></span><div class="img"><img src="por-do-sol.jpg" alt="Casal no pôr do sol nas dunas" style="object-position:50% 40%"></div><div class="tx"><b>05</b><h3>A volta no ritmo de vocês</h3><p>Quer ficar mais um pouco pro pôr do sol? Tudo bem. O passeio flui no tempo do grupo.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img loading="lazy" decoding="async" src="estrada.jpg" alt="Estrada entre coqueiros no litoral de Alagoas"></div><div class="tx"><b>01</b><h3>Ele busca vocês no hotel</h3><p>Carro privativo, ar gelado e espaço pras malas. Só o seu grupo e o Neto.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img loading="lazy" decoding="async" src="gunga-mirante.jpg" alt="Mirante sobre o coqueiral e o mar no Gunga" style="object-position:50% 70%"></div><div class="tx"><b>02</b><h3>Pelo caminho, as histórias</h3><p>Cada cidade, cada mirante e cada curiosidade explicada por quem é daqui.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img loading="lazy" decoding="async" src="clientes-balanco.jpg" alt="Clientes do Neto nos balanços de frente pro mar" style="object-position:50% 45%"></div><div class="tx"><b>03</b><h3>Fotos lindas de todo mundo</h3><p>Ele conhece os melhores ângulos e faz questão de que ninguém fique de fora da foto.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img loading="lazy" decoding="async" src="beach-club.jpg" alt="Mesas pé na areia num restaurante de praia"></div><div class="tx"><b>04</b><h3>Almoço com indicação de local</h3><p>Do beach club pé na areia ao restaurante caseiro que turista nenhum encontra sozinho.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img loading="lazy" decoding="async" src="por-do-sol.jpg" alt="Casal no pôr do sol nas dunas" style="object-position:50% 40%"></div><div class="tx"><b>05</b><h3>A volta no ritmo de vocês</h3><p>Quer ficar mais um pouco pro pôr do sol? Tudo bem. O passeio flui no tempo do grupo.</p></div></div>
     </div>
   </div>
 </section>
@@ -438,7 +447,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
 </section>
 
 <section class="res" id="reservar">
-  <img class="res-img" src="d-milagres.jpg" alt="">
+  <img loading="lazy" decoding="async" class="res-img" src="d-milagres.jpg" alt="">
   <div class="wrap">
   <div class="res-t">
     <span class="k rv">Orçamento sem compromisso</span>
@@ -474,10 +483,10 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
     </div>
     <div class="mural">
       <div class="dep rv"><div class="dep-top"><span class="est"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><svg><use href="#g"/></svg></div><p>Passamos 6 dias incríveis fazendo passeios diários com o Neto. Viajei com um grupo de 7 idosas e ele foi de um cuidado, paciência e carinho exemplares com elas, respeitando sempre o ritmo do grupo.</p><div class="quem-av"><span class="av" style="background:#1638a6">D</span><div><b>Dariana F.</b><small>Google · há 1 mês</small></div></div></div>
-      <figure class="mfoto rv"><img src="balanco-milagres.jpg" alt="Cliente no balanço de Milagres"><figcaption>Balanço em Milagres</figcaption></figure>
+      <figure class="mfoto rv"><img loading="lazy" decoding="async" src="balanco-milagres.jpg" alt="Cliente no balanço de Milagres"><figcaption>Balanço em Milagres</figcaption></figure>
       <div class="dep rv"><div class="dep-top"><span class="est"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><svg><use href="#g"/></svg></div><p>Contratar o Neto foi a melhor decisão da nossa viagem! Excelente profissional, muito pontual, simpático e com bom conhecimento histórico e cultural.</p><div class="quem-av"><span class="av" style="background:#e8640c">E</span><div><b>Edith D.</b><small>Google · há 1 mês</small></div></div></div>
       <div class="dep rv"><div class="dep-top"><span class="est"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><svg><use href="#g"/></svg></div><p>Cuidou de cada detalhe com muito carinho, nos deixou super seguras e garantiu fotos lindas de todo mundo. O passeio fluiu no nosso tempo, sem pressa.</p><div class="quem-av"><span class="av" style="background:#2f9e44">M</span><div><b>Maria das Graças O.</b><small>Google · há 1 mês</small></div></div></div>
-      <figure class="mfoto rv"><img src="por-do-sol.jpg" alt="Casal no pôr do sol nas dunas"><figcaption>Pôr do sol nas dunas</figcaption></figure>
+      <figure class="mfoto rv"><img loading="lazy" decoding="async" src="por-do-sol.jpg" alt="Casal no pôr do sol nas dunas"><figcaption>Pôr do sol nas dunas</figcaption></figure>
       <div class="dep rv"><div class="dep-top"><span class="est"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><svg><use href="#g"/></svg></div><p>Guia excelente! Sempre explicando os lugares por onde passamos, contando as histórias e curiosidades desses lugares.</p><div class="quem-av"><span class="av" style="background:#0b1d4f">M</span><div><b>Mari N.</b><small>Google · há 1 semana</small></div></div></div>
       <div class="dep rv"><div class="dep-top"><span class="est"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><svg><use href="#g"/></svg></div><p>Deu dicas incríveis de lugares, nos levou nos melhores passeios, sempre pontual e ainda mostrou um lado menos turístico, como restaurante local.</p><div class="quem-av"><span class="av" style="background:#f7931e">A</span><div><b>Alenia V.</b><small>Google · há 5 meses</small></div></div></div>
       <div class="dep rv"><div class="dep-top"><span class="est"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><svg><use href="#g"/></svg></div><p>Carro privativo, passeios sensacionais, super divertido, junto com a família toda!</p><div class="quem-av"><span class="av" style="background:#1638a6">M</span><div><b>Mileide Q.</b><small>Google · há 1 ano</small></div></div></div>
@@ -486,7 +495,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
 </section>
 
 <section class="final" id="contato">
-  <img class="bg" src="final.jpg" alt="Jangadas no mar da Pajuçara no fim de tarde">
+  <img loading="lazy" decoding="async" class="bg" src="final.jpg" alt="Jangadas no mar da Pajuçara no fim de tarde">
   <div class="wrap">
     <div class="cta">
       <span class="k rv">Alta temporada chegando</span>
@@ -495,7 +504,7 @@ footer .base{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255
       <a class="btn rv" href="#reservar">Montar meu roteiro</a>
     </div>
     <footer>
-      <div><img src="logo.png" alt="Neto Passeios Alagoas"><p>Passeios privativos, transfer e roteiros personalizados em Maceió e em toda Alagoas.</p></div>
+      <div><img loading="lazy" decoding="async" src="logo.png" alt="Neto Passeios Alagoas"><p>Passeios privativos, transfer e roteiros personalizados em Maceió e em toda Alagoas.</p></div>
       <div><h4>Fale com o Neto</h4><p><a href="https://wa.me/5582988484654" target="_blank" rel="noopener">WhatsApp (82) 98848-4654</a><br>Atendimento 24 horas<br><a href="https://www.instagram.com/neto_passeios_alagoas/" target="_blank" rel="noopener">Instagram @neto_passeios_alagoas</a><br>Pajuçara · Maceió · AL</p></div>
       <div><h4>Passeios</h4><p>Maceió · Francês · Gunga<br>Ipioca · Ilha da Crôa · Milagres<br>Maragogi · Foz e Cânions do São Francisco</p></div>
       <div class="base"><span>Neto Passeios Alagoas · 2026</span><span>Site feito pela Frattini Labs</span></div>
@@ -535,17 +544,17 @@ const OUTROS=['Roteiro com vários passeios','Outro lugar'];
 const orc=document.getElementById('orc'),palco=document.getElementById('palco'),pgrid=document.getElementById('pgrid'),rgrid=document.getElementById('rgrid');
 const DESTAQUES=['Maragogi','São Miguel dos Milagres','Ilha da Crôa','Foz do São Francisco'];
 const DQ=ROTEIROS.filter(r=>DESTAQUES.includes(r.id));
-DQ.forEach((r,i)=>palco.insertAdjacentHTML('beforeend',`<div class="camada"><picture><source media="(max-width:900px)" srcset="${r.m}"><img src="${r.d}" alt="${r.t}"${r.mp?` style="--mp:${r.mp}"`:''}></picture><div class="wrap"><div class="nome"><span class="n">${String(i+1).padStart(2,'0')} / ${String(DQ.length).padStart(2,'0')}</span><small>${r.reg}</small><h3>${r.t}</h3></div><div class="lado"><p>${r.tx}</p><a class="btn" href="#reservar" data-pre="${r.id}">Quero esse</a></div></div><div class="esc"></div></div>`));
+DQ.forEach((r,i)=>palco.insertAdjacentHTML('beforeend',`<div class="camada"><picture><source media="(max-width:900px)" srcset="${r.m}"><img loading="lazy" decoding="async" src="${r.d}" alt="${r.t}"${r.mp?` style="--mp:${r.mp}"`:''}></picture><div class="wrap"><div class="nome"><span class="n">${String(i+1).padStart(2,'0')} / ${String(DQ.length).padStart(2,'0')}</span><small>${r.reg}</small><h3>${r.t}</h3></div><div class="lado"><p>${r.tx}</p><a class="btn" href="#reservar" data-pre="${r.id}">Quero esse</a></div></div><div class="esc"></div></div>`));
 const TAM=['g','t','','','','','w','t','g'];
 ROTEIROS.forEach((r,i)=>{
   const tm=TAM[i]||'',deitada=tm==='g'||tm==='w';
-  pgrid.insertAdjacentHTML('beforeend',`<a class="pcard rv ${tm}" href="#reservar" data-pre="${r.id}"><img src="${deitada?r.d:r.m}" alt="${r.t}" loading="lazy" style="object-position:${deitada?'50% 50%':(r.mp||'50% 50%')}"><span><small>${r.reg}</small><b>${r.t}</b><em>Quero esse →</em></span></a>`);
+  pgrid.insertAdjacentHTML('beforeend',`<a class="pcard rv ${tm}" href="#reservar" data-pre="${r.id}"><img decoding="async" src="${deitada?r.d:r.m}" alt="${r.t}" loading="lazy" style="object-position:${deitada?'50% 50%':(r.mp||'50% 50%')}"><span><small>${r.reg}</small><b>${r.t}</b><em>Quero esse →</em></span></a>`);
   orc.dest.insertAdjacentHTML('beforeend',`<option value="${r.id}">${r.t}</option>`);
 });
 pgrid.insertAdjacentHTML('beforeend',`<a class="pcard cta rv t" href="#reservar" data-pre="Roteiro com vários passeios"><span><small>Vários dias em Alagoas?</small><b>Monte um roteiro com vários passeios</b></span><p>O Neto organiza a ordem certa pra aproveitar a maré e não perder tempo na estrada.</p><span><em>Montar meu roteiro →</em></span></a>`);
 OUTROS.forEach(o=>orc.dest.insertAdjacentHTML('beforeend',`<option>${o}</option>`));
 const TR=['g','t','','','','w',''];
-RESORTS.forEach(([img,loc,n],i)=>rgrid.insertAdjacentHTML('beforeend',`<a class="rcard rv ${TR[i]||''}" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel" data-hotel="${n}"><img src="${img}" alt="${n}" loading="lazy"><span><small>${loc}</small><b>${n}</b><em>Cotar transfer →</em></span></a>`));
+RESORTS.forEach(([img,loc,n],i)=>rgrid.insertAdjacentHTML('beforeend',`<a class="rcard rv ${TR[i]||''}" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel" data-hotel="${n}"><img decoding="async" src="${img}" alt="${n}" loading="lazy"><span><small>${loc}</small><b>${n}</b><em>Cotar transfer →</em></span></a>`));
 rgrid.insertAdjacentHTML('beforeend',`<a class="rcard cta rv f" href="#reservar" data-pre="Transfer aeroporto ⇄ hotel"><span><small style="color:#fff">Outro hotel?</small><b>Seu hotel não tá na lista?</b></span><p>O Neto leva pra qualquer hotel ou pousada de Alagoas.</p><span><em>Cotar meu transfer →</em></span></a>`);
 
 /* formulário com calendário (mesmo modelo do site do Agnaldo) */
@@ -632,7 +641,7 @@ if(!REC&&window.Lenis){
   gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
   document.querySelectorAll('a[href^="#"]:not([data-pre])').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lenis.scrollTo(a.getAttribute('href'),{offset:a.getAttribute('href')==='#reservar'?-60:0})}));
 }
-if(REC){gsap.ticker.lagSmoothing(0);gsap.ticker.sleep();let t=0;window.__step=dt=>{t+=dt||1/60;ScrollTrigger.update();gsap.updateRoot(t)};}
+if(REC){gsap.ticker.lagSmoothing(0);}
 
 const nav=document.getElementById('nav');
 ScrollTrigger.create({start:0,end:'max',onUpdate:s=>nav.classList.toggle('solid',s.scroll()>innerHeight*.85)});
@@ -643,6 +652,7 @@ const hero=gsap.timeline({delay:.1});
 hero.from('#heroImg',{opacity:0,duration:1.4,ease:'power1.out'})
     .from('#heroTit .w>span',SUBIR,.3)
     .from('.h-fade',{opacity:0,duration:1.5,ease:'power2.out',stagger:.15},1);
+if(REC){hero.pause(0);window.__hero=hero;}
 // estrelas brilhando: um brilho passa de estrela em estrela
 gsap.utils.toArray('.est.brilho').forEach(e=>{
   gsap.timeline({repeat:-1,repeatDelay:1.6}).to(e.querySelectorAll('i'),{keyframes:[{scale:1.35,color:'#fff3b0',textShadow:'0 0 14px rgba(255,200,40,1)',duration:.22},{scale:1,color:'#ffc21a',textShadow:'0 0 0px rgba(255,200,40,0)',duration:.4}],stagger:.12,ease:'power1.inOut'});

@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neto Passeios Alagoas · Passeios privativos, transfer e roteiros em Alagoas</title>
+<meta name="description" content="Passeios privativos, transfer aeroporto ⇄ hotel e roteiros personalizados em Maceió e em toda Alagoas, com o guia Neto. Nota 5,0 no Google.">
+<meta property="og:title" content="Neto Passeios Alagoas">
+<meta property="og:description" content="Alagoas do seu jeito, com quem conhece cada canto. Passeios, transfer e roteiros personalizados.">
+<meta property="og:image" content="hero.jpg">
+<link rel="icon" href="logo.png">
+<link rel="preload" href="bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="jakarta.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Bric";src:url(bricolage.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Jak";src:url(jakarta.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{--azul:#1638a6;--noite:#0a1b4a;--laranja:#f7931e;--brasa:#e8590c;--verde:#2f9e44;--areia:#fff6e9;--areia2:#fbe9cf;--tinta:#13203f;--muted:#5b6478;--r:28px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Jak",system-ui,sans-serif;font-size:17px;line-height:1.65;color:var(--tinta);background:var(--areia);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:"Bric",sans-serif;font-weight:800;letter-spacing:-.025em;line-height:1.02}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.kick{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--brasa)}
+.kick::before{content:"";width:28px;height:3px;border-radius:3px;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:17px 28px;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-sol{background:linear-gradient(135deg,var(--laranja),var(--brasa));color:#fff;box-shadow:0 12px 30px -10px rgba(232,89,12,.7)}
+.btn-sol:hover{transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(232,89,12,.8)}
+.btn-vidro{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55);backdrop-filter:blur(8px)}
+.btn-vidro:hover{background:rgba(255,255,255,.24)}
+.btn-azul{background:var(--azul);color:#fff}
+.btn-azul:hover{background:var(--noite)}
+
+/* NAV */
+#nav{position:fixed;inset:0 0 auto 0;z-index:60;padding:16px 0;transition:background .4s,padding .4s,box-shadow .4s}
+#nav .wrap{display:flex;align-items:center;gap:28px}
+#nav .lg{display:flex;align-items:center}
+#nav .lg img{height:64px;width:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.35));transition:height .4s}
+#nav nav{display:flex;gap:30px;margin-left:auto;font-weight:600;font-size:15px;color:#fff}
+#nav nav a{opacity:.92}#nav nav a:hover{opacity:1}
+#nav .btn{padding:12px 20px;font-size:15px}
+#nav.solid{background:rgba(255,246,233,.94);backdrop-filter:blur(12px);box-shadow:0 8px 30px -18px rgba(10,27,74,.5);padding:8px 0}
+#nav.solid .lg img{height:50px;filter:none}
+#nav.solid nav{color:var(--tinta)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;color:#fff;background:var(--noite)}
+.hero-img{position:absolute;inset:-4% 0 0 0;width:100%;height:108%;object-fit:cover;object-position:60% 50%;transform-origin:60% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,27,74,.55) 0%,rgba(10,27,74,0) 30%,rgba(10,27,74,.15) 50%,rgba(10,27,74,.88) 100%),linear-gradient(90deg,rgba(10,27,74,.55),rgba(10,27,74,0) 60%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(56px,9vh,110px)}
+.hero h1{font-size:clamp(46px,7.4vw,112px);max-width:12ch}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:inline-block}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,#ffd27a,var(--laranja) 60%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bora{white-space:nowrap;display:flex;align-items:center;gap:14px;margin:22px 0 30px;font-size:clamp(18px,1.6vw,22px);font-weight:500}
+.bora .slot{position:relative;display:inline-block;height:1.5em;overflow:hidden;min-width:9.5em;vertical-align:bottom}
+.bora .slot b{position:absolute;left:0;top:0;white-space:nowrap;background:#fff;color:var(--azul);padding:0 14px;border-radius:999px;line-height:1.5em;font-weight:800}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.selo{position:absolute;right:clamp(20px,4vw,48px);bottom:clamp(56px,9vh,110px);z-index:3;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.96);color:var(--tinta);border-radius:22px;padding:14px 20px 14px 16px;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.selo svg{width:34px;height:34px}
+.selo b{font-family:"Bric";font-size:30px;line-height:1}
+.selo small{display:block;font-size:13px;color:var(--muted);line-height:1.3}
+.selo .est{color:#f5b301;letter-spacing:1px;font-size:15px}
+
+/* MARQUEE */
+.faixa{background:linear-gradient(90deg,var(--laranja),var(--brasa));color:#fff;overflow:hidden;padding:18px 0;transform:rotate(-1.4deg) scale(1.03);margin-top:-22px;position:relative;z-index:5;box-shadow:0 14px 30px -18px rgba(232,89,12,.9)}
+.faixa .trilho{display:flex;width:max-content}
+.faixa .grupo{display:flex;align-items:center;gap:34px;padding-right:34px;font-family:"Bric";font-weight:800;font-size:clamp(22px,2.4vw,32px);text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
+.faixa .grupo svg{width:30px;height:30px;flex:none}
+
+/* QUEM */
+.quem{padding:clamp(110px,13vw,190px) 0 clamp(90px,10vw,150px)}
+.quem .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,90px);align-items:center}
+.sol{position:relative;aspect-ratio:1/1.08;max-width:520px;width:100%;justify-self:center}
+.sol .disco{position:absolute;left:-6%;top:6%;width:84%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffc46b,var(--laranja) 45%,var(--brasa) 90%)}
+.sol .foto{position:absolute;right:0;top:0;width:78%;height:100%;border-radius:220px 220px var(--r) var(--r);overflow:hidden;box-shadow:0 40px 70px -35px rgba(10,27,74,.7);border:6px solid #fff}
+.sol .foto img{width:100%;height:100%;object-fit:cover;object-position:28% 30%}
+.sol .tag{position:absolute;left:0;bottom:8%;background:var(--azul);color:#fff;border-radius:18px;padding:14px 18px;font-weight:700;font-size:15px;line-height:1.3;box-shadow:0 20px 40px -20px rgba(10,27,74,.8)}
+.sol .tag small{display:block;font-weight:500;opacity:.8;font-size:13px}
+.quem h2{font-size:clamp(38px,4.4vw,64px);margin:16px 0 22px;color:var(--noite)}
+.quem h2 span{color:var(--azul)}
+.quem p{color:var(--muted);max-width:52ch}
+.quem p+p{margin-top:14px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.num{background:#fff;border-radius:20px;padding:20px 18px;box-shadow:0 18px 40px -30px rgba(10,27,74,.6)}
+.num b{font-family:"Bric";font-size:clamp(34px,3.2vw,46px);color:var(--azul);line-height:1;display:block}
+.num>span{font-size:14px;color:var(--muted);line-height:1.35;display:block;margin-top:6px}
+
+/* ROTEIROS (horizontal) */
+.rot{background:var(--noite);color:#fff;position:relative;overflow:hidden}
+.rot-pin{height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(26px,4vh,44px)}
+.rot-top{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+.rot h2{font-size:clamp(38px,4.6vw,68px);max-width:14ch}
+.rot h2 em{font-style:normal;color:var(--laranja)}
+.rot-top p{max-width:34ch;color:rgba(255,255,255,.75);font-size:16px}
+.cards{display:flex;gap:22px;padding:0 clamp(20px,4vw,48px);width:max-content}
+.card{position:relative;width:clamp(260px,23vw,330px);aspect-ratio:4/5.4;border-radius:var(--r);overflow:hidden;flex:none;background:#122a6b}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover img{transform:scale(1.06)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,27,74,0) 35%,rgba(10,27,74,.92) 100%)}
+.card .n{position:absolute;top:16px;left:18px;z-index:2;font-family:"Bric";font-weight:800;font-size:15px;background:rgba(255,255,255,.92);color:var(--azul);border-radius:999px;padding:4px 12px}
+.card .ct{position:absolute;left:20px;right:20px;bottom:20px;z-index:2}
+.card small{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ffcf8a}
+.card h3{font-size:28px;margin:6px 0 8px}
+.card p{font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.85);margin-bottom:14px}
+.card button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;background:var(--laranja);color:#fff;border-radius:999px;padding:10px 16px}
+.card button:hover{background:var(--brasa)}
+.rot-bar{height:4px;border-radius:4px;background:rgba(255,255,255,.15);overflow:hidden}
+.rot-bar i{display:block;height:100%;width:100%;background:var(--laranja);transform-origin:left;transform:scaleX(0)}
+
+/* DIA */
+.dia{padding:clamp(110px,12vw,180px) 0}
+.dia-h{text-align:center;max-width:760px;margin:0 auto clamp(60px,7vw,100px)}
+.dia-h h2{font-size:clamp(38px,4.6vw,66px);margin:16px 0 18px;color:var(--noite)}
+.dia-h p{color:var(--muted)}
+.linha{position:relative;max-width:1040px;margin:0 auto}
+.linha .eixo{position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:var(--areia2);border-radius:4px}
+.linha .eixo i{position:absolute;inset:0;background:linear-gradient(var(--laranja),var(--brasa));transform-origin:top;transform:scaleY(0);border-radius:4px}
+.passo{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,8vw,120px);align-items:center;margin-bottom:clamp(60px,7vw,100px)}
+.passo:last-child{margin-bottom:0}
+.passo .ponto{position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:#fff;border:5px solid var(--laranja);z-index:2}
+.passo .img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.2;box-shadow:0 30px 60px -35px rgba(10,27,74,.6)}
+.passo .img img{width:100%;height:100%;object-fit:cover}
+.passo .tx b{font-family:"Bric";font-size:16px;color:var(--brasa)}
+.passo .tx h3{font-size:clamp(28px,2.8vw,38px);margin:8px 0 12px;color:var(--noite)}
+.passo .tx p{color:var(--muted);max-width:40ch}
+.passo:nth-child(odd of .passo) .img{order:2}
+.passo:nth-child(odd of .passo) .tx{text-align:right;justify-self:end}
+.passo:nth-child(odd of .passo) .tx p{margin-left:auto}
+
+/* TRANSFER */
+.trf{position:relative;margin:0 clamp(12px,2vw,24px);border-radius:clamp(28px,4vw,48px);overflow:hidden;background:var(--azul);color:#fff}
+.trf .grid{display:grid;grid-template-columns:1.05fr 1fr;min-height:620px}
+.trf .tx{padding:clamp(50px,6vw,90px) clamp(26px,5vw,80px);display:flex;flex-direction:column;justify-content:center}
+.trf .kick{color:#ffcf8a}
+.trf h2{font-size:clamp(40px,4.6vw,70px);margin:16px 0 18px}
+.trf h2 .seta{display:inline-block;color:var(--laranja)}
+.trf p{color:rgba(255,255,255,.82);max-width:44ch}
+.trf ul{list-style:none;display:grid;gap:14px;margin:30px 0 34px}
+.trf li{display:flex;gap:14px;align-items:flex-start;font-weight:600}
+.trf li i{flex:none;width:34px;height:34px;border-radius:12px;background:rgba(255,255,255,.14);display:grid;place-items:center}
+.trf li i svg{width:18px;height:18px}
+.trf li span{font-weight:400;opacity:.8;display:block;font-size:15px}
+.trf .vis{position:relative;min-height:360px}
+.trf .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.trf .vis::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--azul),rgba(22,56,166,0) 35%)}
+
+/* PLANNER */
+.plan{padding:clamp(110px,12vw,180px) 0}
+.plan .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,6vw,90px);align-items:start}
+.plan-tx{position:sticky;top:120px}
+.plan h2{font-size:clamp(38px,4.4vw,64px);margin:16px 0 18px;color:var(--noite)}
+.plan h2 span{color:var(--azul)}
+.plan-tx p{color:var(--muted);max-width:40ch}
+.plan-tx .mini{margin-top:28px;display:flex;gap:14px;align-items:center;font-size:15px;color:var(--muted)}
+.plan-tx .mini img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:28% 30%;border:3px solid #fff;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)}
+.form{background:#fff;border-radius:var(--r);padding:clamp(24px,3.4vw,44px);box-shadow:0 40px 80px -50px rgba(10,27,74,.7)}
+.form .etapa{display:flex;align-items:center;gap:12px;font-family:"Bric";font-weight:800;font-size:20px;color:var(--noite);margin-bottom:16px}
+.form .etapa b{width:34px;height:34px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;font-size:16px}
+.form .bloco+.bloco{margin-top:30px;padding-top:28px;border-top:1.5px dashed #e7dccb}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{all:unset;cursor:pointer;font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px;border:1.5px solid #dcd2c2;background:#fffaf2;color:var(--tinta);transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.chip:hover{border-color:var(--laranja)}
+.chip.on{background:var(--azul);border-color:var(--azul);color:#fff}
+.chip.on::before{content:"✓";font-weight:800}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.campos .full{grid-column:1/-1}
+.campos label{display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:14.5px;color:var(--noite)}
+.campos input,.campos select,.campos textarea{font:inherit;font-size:16px;font-weight:500;color:var(--tinta);padding:14px 14px;border-radius:14px;border:1.5px solid #dcd2c2;background:#fffaf2;width:100%}
+.campos textarea{resize:vertical;min-height:84px}
+.campos input:focus,.campos select:focus,.campos textarea:focus{outline:none;border-color:var(--azul);background:#fff}
+.envio{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.envio .btn{justify-content:center;width:100%;border:0;cursor:pointer;font-family:inherit}
+.envio small{text-align:center;color:var(--muted);font-size:14px}
+.aviso{display:none;color:var(--brasa);font-weight:600;font-size:14px;text-align:center}
+
+/* AVALIACOES */
+.aval{padding:clamp(40px,5vw,60px) 0 clamp(110px,12vw,170px)}
+.aval-h{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:clamp(40px,5vw,64px)}
+.aval h2{font-size:clamp(38px,4.6vw,66px);color:var(--noite);max-width:13ch;margin-top:16px}
+.nota{display:flex;align-items:center;gap:16px;background:#fff;border-radius:22px;padding:18px 24px;box-shadow:0 18px 40px -30px rgba(10,27,74,.6)}
+.nota svg{width:40px;height:40px}
+.nota b{font-family:"Bric";font-size:46px;line-height:1;color:var(--noite)}
+.nota small{display:block;color:var(--muted);font-size:14px;line-height:1.35}
+.nota .est{color:#f5b301;letter-spacing:2px;font-size:17px}
+.mural{columns:3;column-gap:22px}
+.mural>*{break-inside:avoid;margin-bottom:22px}
+.dep{background:#fff;border-radius:24px;padding:26px 26px 24px;box-shadow:0 18px 40px -32px rgba(10,27,74,.6)}
+.dep .est{color:#f5b301;letter-spacing:2px;font-size:16px}
+.dep p{margin:10px 0 18px;font-size:16.5px;line-height:1.6}
+.dep .quem-av{display:flex;align-items:center;gap:12px}
+.dep .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px}
+.dep .quem-av b{display:block;font-size:15.5px;line-height:1.2}
+.dep .quem-av small{color:var(--muted);font-size:13.5px}
+.mfoto{border-radius:24px;overflow:hidden;position:relative}
+.mfoto img{width:100%}
+.mfoto figcaption{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.94);border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:700;color:var(--noite)}
+
+/* FINAL */
+.final{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;background:var(--noite)}
+.final img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.final::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,27,74,.35),rgba(10,27,74,.82))}
+.final .wrap{position:relative;z-index:2}
+.final h2{font-size:clamp(48px,7vw,110px);max-width:12ch;margin:18px auto 22px}
+.final h2 em{font-style:normal;color:var(--laranja)}
+.final p{font-size:19px;max-width:44ch;margin:0 auto 34px;opacity:.9}
+.final .kick{color:#ffcf8a}
+footer{background:var(--noite);color:rgba(255,255,255,.78);padding:60px 0 40px;font-size:15px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+footer img{height:84px;width:auto;margin-bottom:16px}
+footer h4{font-family:"Bric";color:#fff;font-size:18px;margin-bottom:12px}
+footer a:hover{color:#fff}
+footer .base{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:13.5px;opacity:.7;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.zap{position:fixed;right:22px;bottom:22px;z-index:70;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.45)}
+.zap svg{width:32px;height:32px}
+
+/* MOBILE */
+@media(max-width:900px){
+  #nav nav{display:none}
+  #nav .btn{margin-left:auto}
+  #nav .lg img{height:52px}
+  .hero h1{font-size:clamp(42px,11.5vw,64px)}
+  .selo{position:relative;right:auto;bottom:auto;margin-top:22px;display:inline-flex}
+  .hero .kick{font-size:11px;letter-spacing:.12em}
+  .hero-cta .btn{padding:15px 22px}
+  .hero .wrap{padding-bottom:44px}
+  .quem .wrap,.plan .wrap,.trf .grid{grid-template-columns:1fr}
+  .sol{max-width:420px}
+  .nums{grid-template-columns:repeat(3,1fr);gap:10px}
+  .num{padding:14px 12px}.num>span{font-size:12.5px}
+  .rot-pin{height:auto;padding:100px 0}
+  .rot-top{flex-direction:column;align-items:flex-start}
+  .cards-viewport{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .cards-viewport::-webkit-scrollbar{display:none}
+  .card{scroll-snap-align:center;width:78vw}
+  .rot-bar{display:none}
+  .linha .eixo{left:18px}
+  .passo{grid-template-columns:1fr;gap:20px;padding-left:46px}
+  .passo .ponto{left:18px;top:24px}
+  .passo:nth-child(odd of .passo) .img{order:0}
+  .passo:nth-child(odd of .passo) .tx{text-align:left;justify-self:start}
+  .passo:nth-child(odd of .passo) .tx p{margin-left:0}
+  .trf .vis{min-height:280px;order:-1}
+  .trf .vis::before{background:linear-gradient(0deg,var(--azul),rgba(22,56,166,0) 40%)}
+  .plan-tx{position:static}
+  .campos{grid-template-columns:1fr}
+  .aval-h{flex-direction:column;align-items:flex-start}
+  .mural{columns:1}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media(min-width:901px) and (max-width:1150px){.mural{columns:2}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="wa" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.8-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5.1 10 10 5.2 16 5.2S26.9 10 26.9 15.8 22 26.4 16 26.4zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8 0 1.6 1.2 3.2 1.4 3.4.2.2 2.3 3.6 5.7 4.9 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/></symbol>
+  <symbol id="palma" viewBox="0 0 32 32"><path fill="currentColor" d="M17.5 13.2c3.6-2.8 8.4-2.3 10.5.2-3.2-.6-6 .2-8 1.6 3.4-.2 6.3 1.6 7 4.4-2.4-1.8-5.6-2.3-8-1.7 1.2 3.4.6 9.5-.6 13.3h-2.6c1.4-3.6 2-9 1-12.4-2 1.3-5.2 2-7.8.9 2.4-1.2 4.8-2.6 6.2-3.8-2.6-.6-6.2.2-8.2 2.2.4-3 4.2-5 8-4.6-1.6-1.6-4.2-2.4-6.6-2 2.6-2.2 6.8-1.6 9.1 1.9z"/></symbol>
+  <symbol id="g" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></symbol>
+  <symbol id="ok" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17 19 7.5"/></symbol>
+</svg>
+
+<header id="nav">
+  <div class="wrap">
+    <a class="lg" href="#topo" aria-label="Neto Passeios Alagoas"><img src="logo.png" alt="Neto Passeios Alagoas"></a>
+    <nav><a href="#quem">Quem é o Neto</a><a href="#roteiros">Passeios</a><a href="#transfer">Transfer</a><a href="#avaliacoes">Avaliações</a></nav>
+    <a class="btn btn-sol" href="#planejar">Montar roteiro</a>
+  </div>
+</header>
+
+<section class="hero" id="topo">
+  <img class="hero-img" id="heroImg" src="hero.jpg" alt="Carro do passeio na estrada entre coqueirais do litoral de Alagoas">
+  <div class="wrap">
+    <span class="kick" style="color:#ffcf8a">Passeios · Transfer · Roteiros personalizados</span>
+    <h1 style="margin-top:18px"><span class="ln"><span>Alagoas do</span></span><span class="ln"><span>seu jeito, com</span></span><span class="ln"><span><em>quem conhece.</em></span></span></h1>
+    <div class="bora h-fade">Bora pro <span class="slot" id="slot"><b>Gunga</b><b>Francês</b><b>Milagres</b><b>Maragogi</b><b>Cânions</b><b>Gunga</b></span></div>
+    <div class="hero-cta h-fade">
+      <a class="btn btn-sol" href="#planejar">Montar meu roteiro</a>
+      <a class="btn btn-vidro" href="https://wa.me/5582988484654?text=Ol%C3%A1%2C%20Neto!%20Vim%20pelo%20site%20e%20quero%20saber%20dos%20passeios." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Falar com o Neto</a>
+    </div>
+    <div class="selo h-fade"><svg><use href="#g"/></svg><div><b>5,0</b></div><div><span class="est">★★★★★</span><small>201 avaliações<br>no Google</small></div></div>
+  </div>
+</section>
+
+<div class="faixa" aria-hidden="true"><div class="trilho" id="trilho"></div></div>
+
+<section class="quem" id="quem">
+  <div class="wrap">
+    <div class="sol rv">
+      <div class="disco" id="disco"></div>
+      <div class="foto"><img src="neto-frances.jpg" alt="O guia Neto com clientes no letreiro da Praia do Francês"></div>
+      <div class="tag">Praia do Francês<small>Neto com clientes</small></div>
+    </div>
+    <div>
+      <span class="kick rv">Quem te leva</span>
+      <h2 class="rv">Prazer, eu sou o <span>Neto.</span></h2>
+      <p class="rv">Sou guia de turismo receptivo em Maceió e levo você pra conhecer Alagoas de um jeito diferente: com carro privativo, no ritmo do seu grupo e contando a história de cada lugar pelo caminho.</p>
+      <p class="rv">Família com criança, casal, amigos ou grupo da melhor idade, eu cuido de cada detalhe, do horário certo da maré ao restaurante que só quem é daqui conhece.</p>
+      <div class="nums rv">
+        <div class="num"><b><span class="cnt" data-to="201">201</span></b><span>avaliações no Google</span></div>
+        <div class="num"><b>5,0</b><span>de nota, todas as estrelas</span></div>
+        <div class="num"><b>24h</b><span>de atendimento pelo WhatsApp</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rot" id="roteiros">
+  <div class="rot-pin">
+    <div class="wrap rot-top">
+      <div><span class="kick" style="color:#ffcf8a">Passeios</span><h2 style="margin-top:14px">Escolha pra onde <em>a gente vai.</em></h2></div>
+      <p>Do litoral norte ao Velho Chico. Toca em "Quero esse" que ele entra no seu roteiro lá embaixo.</p>
+    </div>
+    <div class="cards-viewport"><div class="cards" id="cards"></div></div>
+    <div class="wrap"><div class="rot-bar"><i id="rotBar"></i></div></div>
+  </div>
+</section>
+
+<section class="dia" id="dia">
+  <div class="wrap">
+    <div class="dia-h">
+      <span class="kick rv">Como funciona</span>
+      <h2 class="rv">Um dia de passeio com o Neto</h2>
+      <p class="rv">Sem van lotada, sem pressa e sem correria pra cumprir horário de grupo. O dia é de vocês.</p>
+    </div>
+    <div class="linha">
+      <div class="eixo"><i id="eixo"></i></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img src="estrada.jpg" alt="Estrada entre coqueiros no litoral de Alagoas"></div><div class="tx"><b>01</b><h3>Ele busca vocês no hotel</h3><p>Carro privativo, ar gelado e espaço pras malas. Só o seu grupo e o Neto.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img src="gunga-mirante.jpg" alt="Mirante sobre o coqueiral e o mar"></div><div class="tx"><b>02</b><h3>Pelo caminho, as histórias</h3><p>Cada cidade, cada mirante e cada curiosidade explicada por quem é daqui.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img src="clientes-balanco.jpg" alt="Clientes do Neto nos balanços de frente pro mar"></div><div class="tx"><b>03</b><h3>Fotos lindas de todo mundo</h3><p>Ele conhece os melhores ângulos e faz questão de que ninguém fique de fora da foto.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img src="beach-club.jpg" alt="Mesas pé na areia num restaurante de praia"></div><div class="tx"><b>04</b><h3>Almoço com indicação de local</h3><p>Do beach club pé na areia ao restaurante caseiro que turista nenhum encontra sozinho.</p></div></div>
+      <div class="passo"><span class="ponto"></span><div class="img"><img src="por-do-sol.jpg" alt="Casal no pôr do sol nas dunas"></div><div class="tx"><b>05</b><h3>A volta no ritmo de vocês</h3><p>Quer ficar mais um pouco pro pôr do sol? Tudo bem. O passeio flui no tempo do grupo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="trf" id="transfer">
+  <div class="grid">
+    <div class="tx">
+      <span class="kick">Transfer</span>
+      <h2>Aeroporto <span class="seta">⇄</span> hotel em toda Alagoas</h2>
+      <p>Você desembarca em Maceió e o Neto já está te esperando. Ele leva pra Maceió, pras praias do litoral sul e norte e pra qualquer cidade de Alagoas.</p>
+      <ul>
+        <li><i><svg><use href="#ok"/></svg></i><div>Individual, família ou pequenos grupos<span>Carro privativo, sem dividir com estranhos</span></div></li>
+        <li><i><svg><use href="#ok"/></svg></i><div>Espaço pra todas as malas<span>Com carretinha quando o grupo precisa</span></div></li>
+        <li><i><svg><use href="#ok"/></svg></i><div>Agendamento rápido e pontualidade<span>Tudo combinado pelo WhatsApp</span></div></li>
+      </ul>
+      <div><a class="btn btn-sol" href="#planejar" data-pre="Transfer aeroporto ⇄ hotel">Cotar meu transfer</a></div>
+    </div>
+    <div class="vis"><img id="vanImg" src="transfer-van.jpg" alt="Carro com carretinha esperando no aeroporto com as malas" style="object-position:40% 65%"></div>
+  </div>
+</section>
+
+<section class="plan" id="planejar">
+  <div class="wrap">
+    <div class="plan-tx">
+      <span class="kick rv">Orçamento sem compromisso</span>
+      <h2 class="rv">Monte seu roteiro em <span>1 minuto.</span></h2>
+      <p class="rv">Escolha os passeios, conta quando vocês chegam e quantas pessoas vão. A mensagem chega pronta no WhatsApp do Neto e ele te responde com o roteiro e o valor certinho pro seu grupo.</p>
+      <div class="mini rv"><img src="neto-frances.jpg" alt=""><div><b style="color:var(--noite)">Neto</b><br>Responde pessoalmente, 24h</div></div>
+    </div>
+    <form class="form rv" id="form" novalidate>
+      <div class="bloco">
+        <div class="etapa"><b>1</b>Quais passeios te interessam?</div>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="bloco">
+        <div class="etapa"><b>2</b>Sobre a viagem</div>
+        <div class="campos">
+          <label>Quando vocês chegam?<input type="date" name="chegada"></label>
+          <label>Quantos dias em Alagoas?<input type="number" name="dias" min="1" inputmode="numeric" placeholder="Ex.: 5"></label>
+          <label>Quantas pessoas?<input type="number" name="pessoas" min="1" inputmode="numeric" placeholder="Ex.: 4"></label>
+          <label>Quem vai no grupo?<select name="grupo"><option value="">Escolha</option><option>Casal</option><option>Família com crianças</option><option>Grupo com pessoas da melhor idade</option><option>Amigos</option><option>Viajo sozinho(a)</option></select></label>
+          <label class="full">Onde vocês vão ficar?<input type="text" name="hotel" placeholder="Hotel, pousada ou bairro (opcional)"></label>
+          <label class="full">Quer contar mais alguma coisa?<textarea name="obs" placeholder="Ex.: chego de manhã, quero ver o pôr do sol, tenho alguém com dificuldade de locomoção…"></textarea></label>
+        </div>
+      </div>
+      <div class="envio">
+        <p class="aviso" id="aviso">Escolha pelo menos um passeio ou o transfer 🙂</p>
+        <button class="btn btn-sol" type="submit"><svg><use href="#wa"/></svg>Enviar pro WhatsApp do Neto</button>
+        <small>A mensagem abre pronta no seu WhatsApp. É só apertar enviar.</small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="aval" id="avaliacoes">
+  <div class="wrap">
+    <div class="aval-h">
+      <div><span class="kick rv">Avaliações</span><h2 class="rv">Quem foi, voltou contando.</h2></div>
+      <div class="nota rv"><svg><use href="#g"/></svg><b>5,0</b><div><span class="est">★★★★★</span><small>201 avaliações no Google</small></div></div>
+    </div>
+    <div class="mural">
+      <div class="dep rv"><span class="est">★★★★★</span><p>Passamos 6 dias incríveis fazendo passeios diários com o Neto. Viajei com um grupo de 7 idosas e ele foi de um cuidado, paciência e carinho exemplares com elas, respeitando sempre o ritmo do grupo.</p><div class="quem-av"><span class="av" style="background:#1638a6">D</span><div><b>Dariana F.</b><small>Google · há 1 mês</small></div></div></div>
+      <figure class="mfoto rv"><img src="por-do-sol.jpg" alt="Casal no pôr do sol nas dunas"><figcaption>Pôr do sol nas dunas</figcaption></figure>
+      <div class="dep rv"><span class="est">★★★★★</span><p>Contratar o Neto foi a melhor decisão da nossa viagem! Excelente profissional, muito pontual, simpático e com bom conhecimento histórico e cultural.</p><div class="quem-av"><span class="av" style="background:#e8590c">E</span><div><b>Edith D.</b><small>Google · há 1 mês</small></div></div></div>
+      <div class="dep rv"><span class="est">★★★★★</span><p>Cuidou de cada detalhe com muito carinho, nos deixou super seguras e garantiu fotos lindas de todo mundo. O passeio fluiu no nosso tempo, sem pressa.</p><div class="quem-av"><span class="av" style="background:#2f9e44">M</span><div><b>Maria das Graças O.</b><small>Google · há 1 mês</small></div></div></div>
+      <figure class="mfoto rv"><img src="buggy-dunas.jpg" alt="Buggys nas dunas de frente pro mar"><figcaption>Buggy nas dunas</figcaption></figure>
+      <div class="dep rv"><span class="est">★★★★★</span><p>Guia excelente! Sempre explicando os lugares por onde passamos, contando as histórias e curiosidades desses lugares.</p><div class="quem-av"><span class="av" style="background:#0a1b4a">M</span><div><b>Mari N.</b><small>Google · há 1 semana</small></div></div></div>
+      <div class="dep rv"><span class="est">★★★★★</span><p>Deu dicas incríveis de lugares, nos levou nos melhores passeios, sempre pontual e ainda mostrou um lado menos turístico, como restaurante local.</p><div class="quem-av"><span class="av" style="background:#f7931e">A</span><div><b>Alenia V.</b><small>Google · há 5 meses</small></div></div></div>
+      <div class="dep rv"><span class="est">★★★★★</span><p>Carro privativo, passeios sensacionais, super divertido, junto com a família toda!</p><div class="quem-av"><span class="av" style="background:#1638a6">M</span><div><b>Mileide Q.</b><small>Google · há 1 ano</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contato">
+  <img class="bg" id="finalImg" src="foz.jpg" alt="Foz do Rio São Francisco com dunas e mar">
+  <div class="wrap">
+    <span class="kick rv">Alta temporada chegando</span>
+    <h2 class="rv">Alagoas tá te <em>esperando.</em></h2>
+    <p class="rv">Dezembro e janeiro lotam rápido. Garante seu roteiro com o Neto antes de embarcar.</p>
+    <a class="btn btn-sol rv" href="#planejar">Montar meu roteiro</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><img src="logo.png" alt="Neto Passeios Alagoas"><p>Passeios privativos, transfer e roteiros personalizados em Maceió e em toda Alagoas.</p></div>
+    <div><h4>Fale com o Neto</h4><p><a href="https://wa.me/5582988484654" target="_blank" rel="noopener">WhatsApp (82) 98848-4654</a><br>Atendimento 24 horas<br><a href="https://www.instagram.com/neto_passeios_alagoas/" target="_blank" rel="noopener">Instagram @neto_passeios_alagoas</a><br>Pajuçara · Maceió · AL</p></div>
+    <div><h4>Passeios</h4><p>Maceió · Francês · Gunga<br>Ipioca · Ilha da Crôa · Milagres<br>Maragogi · Foz e Cânions do São Francisco</p></div>
+    <div class="base"><span>© 2026 Neto Passeios Alagoas</span><span>Site feito pela Frattini Labs</span></div>
+  </div>
+</footer>
+
+<a class="zap" href="https://wa.me/5582988484654?text=Ol%C3%A1%2C%20Neto!%20Vim%20pelo%20site." target="_blank" rel="noopener" aria-label="WhatsApp do Neto"><svg style="color:#fff"><use href="#wa"/></svg></a>
+
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
+<script src="lenis.min.js"></script>
+<script>
+const WA='5582988484654';
+const ROTEIROS=[
+  {id:'Maceió (city tour)',img:'orla-maceio.jpg',reg:'Capital',t:'Maceió',d:'Orla da Pajuçara, Ponta Verde, feirinha de artesanato e as histórias da cidade.',pos:'50% 50%'},
+  {id:'Praia do Francês',img:'frances.jpg',reg:'Litoral sul',t:'Praia do Francês',d:'Mar calmo protegido pelos recifes e barracas pé na areia.',pos:'40% 50%'},
+  {id:'Gunga e Barra de São Miguel',img:'gunga-mirante.jpg',reg:'Litoral sul',t:'Gunga',d:'O mirante sobre o coqueiral, as falésias e a lagoa da Barra de São Miguel.',pos:'50% 50%'},
+  {id:'Ipioca',img:'ipioca.jpg',reg:'Litoral norte',t:'Ipioca',d:'Beach clubs pé na areia no litoral norte de Maceió.',pos:'50% 40%'},
+  {id:'Ilha da Crôa',img:'croa.jpg',reg:'Barra de Santo Antônio',t:'Ilha da Crôa',d:'Banco de areia no meio do mar, com água cristalina e bem rasinha.',pos:'50% 50%'},
+  {id:'São Miguel dos Milagres',img:'balanco-milagres.jpg',reg:'Rota Ecológica',t:'Milagres',d:'Piscinas naturais, coqueiral sem fim e os balanços mais famosos de Alagoas.',pos:'50% 50%'},
+  {id:'Maragogi',img:'maragogi.jpg',reg:'Costa dos Corais',t:'Maragogi',d:'As galés de Maragogi no horário certo da maré baixa.',pos:'50% 50%'},
+  {id:'Foz do São Francisco',img:'foz.jpg',reg:'Piaçabuçu',t:'Foz do São Francisco',d:'Dunas, rio e mar se encontrando num cenário que parece outro país.',pos:'50% 50%'},
+  {id:'Cânions do São Francisco',img:'canions.jpg',reg:'Piranhas · sertão',t:'Cânions do Xingó',d:'Catamarã entre paredões de pedra nas águas verdes do Velho Chico.',pos:'50% 50%'}
+];
+const cards=document.getElementById('cards'), chips=document.getElementById('chips');
+ROTEIROS.forEach((r,i)=>{
+  cards.insertAdjacentHTML('beforeend',`<article class="card"><img src="${r.img}" alt="${r.t}" style="object-position:${r.pos}" loading="lazy"><span class="n">${String(i+1).padStart(2,'0')}</span><div class="ct"><small>${r.reg}</small><h3>${r.t}</h3><p>${r.d}</p><button type="button" data-pre="${r.id}">Quero esse</button></div></article>`);
+  chips.insertAdjacentHTML('beforeend',`<button type="button" class="chip" data-v="${r.id}">${r.t}</button>`);
+});
+chips.insertAdjacentHTML('beforeend',`<button type="button" class="chip" data-v="Transfer aeroporto ⇄ hotel">Transfer aeroporto ⇄ hotel</button>`);
+chips.addEventListener('click',e=>{const c=e.target.closest('.chip');if(c){c.classList.toggle('on');document.getElementById('aviso').style.display='none'}});
+document.querySelectorAll('[data-pre]').forEach(b=>b.addEventListener('click',e=>{
+  const v=b.dataset.pre; const c=[...chips.children].find(x=>x.dataset.v===v); if(c) c.classList.add('on');
+  e.preventDefault(); const t=document.getElementById('planejar'); lenis?lenis.scrollTo(t,{offset:-20}):t.scrollIntoView({behavior:'smooth'});
+}));
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target; const sel=[...chips.querySelectorAll('.on')].map(c=>c.dataset.v);
+  if(!sel.length){document.getElementById('aviso').style.display='block';return;}
+  const d=f.chegada.value?f.chegada.value.split('-').reverse().join('/'):'';
+  let m='Olá, Neto! Vim pelo site e quero montar meu roteiro.\n\nPasseios: '+sel.join(', ');
+  if(d) m+='\nChegada: '+d; if(f.dias.value) m+='\nDias em Alagoas: '+f.dias.value; if(f.pessoas.value) m+='\nPessoas: '+f.pessoas.value;
+  if(f.grupo.value) m+='\nGrupo: '+f.grupo.value; if(f.hotel.value) m+='\nHospedagem: '+f.hotel.value; if(f.obs.value) m+='\nObservação: '+f.obs.value;
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(m),'_blank');
+});
+// faixa (marquee)
+const nomes=['Maceió','Francês','Gunga','Ipioca','Ilha da Crôa','Milagres','Maragogi','Foz do São Francisco','Cânions'];
+const grupo='<div class="grupo">'+nomes.map(n=>`<span>${n}</span><svg><use href="#palma"/></svg>`).join('')+'</div>';
+document.getElementById('trilho').innerHTML=grupo+grupo;
+
+gsap.registerPlugin(ScrollTrigger);
+const REC=/[?&]rec/.test(location.search);
+let lenis=null;
+if(!REC && window.Lenis){
+  lenis=new Lenis({lerp:.09}); lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{if(a.dataset.pre)return;e.preventDefault();lenis.scrollTo(a.getAttribute('href'),{offset:-10})}));
+}
+if(REC){gsap.ticker.lagSmoothing(0);gsap.ticker.sleep();let t=0;window.__step=dt=>{t+=dt||1/60;ScrollTrigger.update();gsap.updateRoot(t)};}
+
+const nav=document.getElementById('nav');
+ScrollTrigger.create({start:0,end:'max',onUpdate:s=>nav.classList.toggle('solid',s.scroll()>innerHeight*.75)});
+
+// hero
+const h=gsap.timeline({delay:.15});
+h.from('#heroImg',{scale:1.18,opacity:0,duration:2.4,ease:'power2.out'})
+ .from('.hero h1 .ln>span',{yPercent:110,duration:1.3,ease:'power4.out',stagger:.14},.35)
+ .from('.hero .kick',{opacity:0,y:14,duration:1},.3)
+ .from('.h-fade',{opacity:0,y:22,duration:1.1,ease:'power3.out',stagger:.15},1);
+gsap.to('#heroImg',{yPercent:12,scale:1.06,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+// slot de destinos
+const slots=gsap.utils.toArray('#slot b'); gsap.set(slots,{yPercent:100}); gsap.set(slots[0],{yPercent:0});
+const st=gsap.timeline({repeat:-1,delay:2.2});
+for(let i=0;i<slots.length-1;i++){st.to(slots[i],{yPercent:-100,duration:.55,ease:'power3.inOut'},'+=1.3').fromTo(slots[i+1],{yPercent:100},{yPercent:0,duration:.55,ease:'power3.inOut'},'<');}
+st.set(slots,{yPercent:100}).set(slots[0],{yPercent:0});
+// faixa
+gsap.to('#trilho',{xPercent:-50,duration:30,ease:'none',repeat:-1});
+// revelações
+gsap.utils.toArray('.rv').forEach(el=>gsap.from(el,{opacity:0,y:40,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+// sol girando de leve + contador
+gsap.fromTo('#disco',{scale:.6,rotate:-30},{scale:1,rotate:0,ease:'none',scrollTrigger:{trigger:'.quem',start:'top 90%',end:'center center',scrub:true}});
+document.querySelectorAll('.cnt').forEach(c=>{const o={v:0};gsap.to(o,{v:+c.dataset.to,duration:1.8,ease:'power2.out',scrollTrigger:{trigger:c,start:'top 90%'},onUpdate:()=>c.textContent=Math.round(o.v)})});
+// roteiros: horizontal no desktop
+const mm=gsap.matchMedia();
+mm.add('(min-width:901px)',()=>{
+  const track=document.getElementById('cards');
+  const dist=()=>track.scrollWidth-innerWidth;
+  gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'.rot',start:'top top',end:()=>'+='+dist()*1.1,pin:'.rot-pin',scrub:REC?true:1,invalidateOnRefresh:true,anticipatePin:1}});
+  gsap.to('#rotBar',{scaleX:1,ease:'none',scrollTrigger:{trigger:'.rot',start:'top top',end:()=>'+='+dist()*1.1,scrub:true}});
+  gsap.from('.card',{opacity:0,y:60,duration:1,stagger:.08,ease:'power3.out',scrollTrigger:{trigger:'.rot',start:'top 70%'}});
+});
+// linha do dia
+gsap.to('#eixo',{scaleY:1,ease:'none',scrollTrigger:{trigger:'.linha',start:'top 65%',end:'bottom 65%',scrub:true}});
+gsap.utils.toArray('.passo').forEach((p,i)=>{
+  gsap.from(p.querySelector('.img'),{opacity:0,x:(window.innerWidth>900?(i%2?-60:60):0),y:30,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:p,start:'top 82%'}});
+  gsap.from(p.querySelector('.tx'),{opacity:0,y:30,duration:1.1,ease:'power3.out',delay:.15,scrollTrigger:{trigger:p,start:'top 82%'}});
+  gsap.from(p.querySelector('.ponto'),{scale:0,duration:.6,ease:'back.out(3)',scrollTrigger:{trigger:p,start:'top 65%'}});
+});
+// transfer
+gsap.fromTo('.trf',{clipPath:'inset(8% 6% 8% 6% round 48px)'},{clipPath:'inset(0% 0% 0% 0% round 48px)',ease:'none',scrollTrigger:{trigger:'.trf',start:'top 95%',end:'top 30%',scrub:true}});
+gsap.fromTo('#vanImg',{scale:1.18},{scale:1,ease:'none',scrollTrigger:{trigger:'.trf',start:'top bottom',end:'bottom top',scrub:true}});
+gsap.to('.trf .seta',{rotate:180,duration:1.2,ease:'power2.inOut',repeat:-1,repeatDelay:1.4});
+// final
+gsap.fromTo('#finalImg',{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:'.final',start:'top bottom',end:'bottom bottom',scrub:true}});
+window.addEventListener('load',()=>ScrollTrigger.refresh());
+</script>
+</body>
+</html>
